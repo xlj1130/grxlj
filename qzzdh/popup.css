@@ -1,0 +1,329 @@
+/* ========== 全局 ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #4f6ef7;
+  --primary-dark: #3c58d8;
+  --danger: #f75f5f;
+  --bg: #f5f7fb;
+  --card-bg: #ffffff;
+  --text: #22293a;
+  --text-sub: #6b7280;
+  --border: #e5e8f0;
+  --success: #22c55e;
+  --warn: #f59e0b;
+  --radius: 10px;
+}
+
+body {
+  width: 340px;
+  font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.app {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ========== 头部 ========== */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary), #7c8ff7);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.header-text h1 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.header-text .sub {
+  font-size: 11px;
+  color: var(--text-sub);
+}
+
+/* ========== 站点状态条 ========== */
+.site-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--warn);
+  flex-shrink: 0;
+}
+
+.site-bar.ok .dot { background: var(--success); }
+.site-bar.bad .dot { background: var(--danger); }
+
+/* ========== 卡片 ========== */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-title::before {
+  content: "";
+  width: 4px;
+  height: 14px;
+  border-radius: 2px;
+  background: var(--primary);
+}
+
+/* ========== 表单字段 ========== */
+.field {
+  margin-bottom: 12px;
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.field-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 12px;
+  outline: none;
+  transition: border 0.2s;
+  background: #fbfcfe;
+}
+
+.input:focus {
+  border-color: var(--primary);
+  background: #fff;
+}
+
+.hint {
+  font-size: 11px;
+  color: var(--text-sub);
+  margin-top: 4px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.field.half {
+  flex: 1;
+  margin-bottom: 8px;
+}
+
+/* ========== 多选标签（chips） ========== */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 11px;
+  cursor: pointer;
+  user-select: none;
+  background: #fbfcfe;
+  color: var(--text-sub);
+  transition: all 0.15s;
+}
+
+.chip:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.chip.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+/* ========== 开关行 ========== */
+.switch-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 0;
+  color: var(--text);
+}
+
+.switch-row input {
+  accent-color: var(--primary);
+  width: 15px;
+  height: 15px;
+}
+
+/* ========== 按钮 ========== */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-dark);
+}
+
+.btn-secondary {
+  background: #eef1fb;
+  color: var(--primary);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #dfe5fb;
+}
+
+.btn-danger {
+  background: #fdeaea;
+  color: var(--danger);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: #fbdada;
+}
+
+/* ========== 状态区 ========== */
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.stat {
+  text-align: center;
+  flex: 1;
+}
+
+.stat span {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.stat em {
+  font-style: normal;
+  font-size: 11px;
+  color: var(--text-sub);
+}
+
+.progress {
+  height: 6px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--primary), #7c8ff7);
+  border-radius: 999px;
+  transition: width 0.3s;
+}
+
+.log {
+  max-height: 130px;
+  overflow-y: auto;
+  font-size: 11px;
+  background: #0f172a;
+  color: #cbd5e1;
+  border-radius: 8px;
+  padding: 8px;
+  font-family: "Consolas", "Courier New", monospace;
+  line-height: 1.6;
+}
+
+.log .l-ok { color: #4ade80; }
+.log .l-warn { color: #facc15; }
+.log .l-err { color: #f87171; }
+.log .l-info { color: #93c5fd; }
+
+/* ========== 底部 ========== */
+.footer {
+  text-align: center;
+  font-size: 10px;
+  color: var(--text-sub);
+}
+
+/* 滚动条 */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: #cdd3e0; border-radius: 3px; }

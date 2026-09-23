@@ -1,0 +1,146 @@
+ <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>求职助手</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- 顶部标题 -->
+    <header class="header">
+      <div class="logo">QZ</div>
+      <div class="header-text">
+        <h1>求职助手</h1>
+        <p class="sub">批量投递 · 智能筛选</p>
+      </div>
+    </header>
+
+    <!-- 当前站点状态 -->
+    <div class="site-bar" id="siteBar">
+      <span class="dot" id="siteDot"></span>
+      <span id="siteName">检测站点中…</span>
+    </div>
+
+    <!-- 筛选条件区 -->
+    <section class="card">
+      <h2 class="card-title">筛选条件</h2>
+
+      <!-- 工作年限 -->
+      <div class="field">
+        <label class="field-label">工作年限</label>
+        <div class="chips" id="expChips"></div>
+      </div>
+
+      <!-- 学历 -->
+      <div class="field">
+        <label class="field-label">学历要求</label>
+        <div class="chips" id="eduChips"></div>
+      </div>
+
+      <!-- 招聘者活跃度 -->
+      <div class="field">
+        <label class="field-label">招聘者活跃时间</label>
+        <div class="chips" id="activeChips"></div>
+        <p class="hint">只投递最近活跃过的招聘者，避开“半年前活跃”的僵尸岗位</p>
+      </div>
+
+      <!-- 公司规模 -->
+      <div class="field">
+        <label class="field-label">公司规模</label>
+        <div class="chips" id="sizeChips"></div>
+        <p class="hint">多选，不勾选任何档位则不限制</p>
+      </div>
+
+      <!-- 城市地区 -->
+      <div class="field">
+        <label class="field-label" for="cityInput">城市地区</label>
+        <input
+          type="text"
+          id="cityInput"
+          class="input"
+          placeholder="如：北京、上海，多个用逗号分隔，留空不限制"
+        />
+        <p class="hint">仅投递工作地区包含这些关键词的职位</p>
+      </div>
+
+      <!-- 职位关键词 -->
+      <div class="field">
+        <label class="field-label" for="keywordInput">职位关键词（可选）</label>
+        <input
+          type="text"
+          id="keywordInput"
+          class="input"
+          placeholder="如：前端、Java，留空不限制"
+        />
+        <p class="hint">职位名包含任一关键词才会投递</p>
+      </div>
+
+      <!-- 排除关键词 -->
+      <div class="field">
+        <label class="field-label" for="excludeInput">排除关键词（可选）</label>
+        <input
+          type="text"
+          id="excludeInput"
+          class="input"
+          placeholder="如：外包、实习，留空不排除"
+        />
+        <p class="hint">职位名或公司名包含任一关键词则跳过</p>
+      </div>
+    </section>
+
+    <!-- 投递策略区 -->
+    <section class="card">
+      <h2 class="card-title">投递策略</h2>
+
+      <div class="row">
+        <div class="field half">
+          <label class="field-label" for="intervalInput">投递间隔（秒）</label>
+          <input type="number" id="intervalInput" class="input" min="1" max="60" step="1" value="3" />
+        </div>
+        <div class="field half">
+          <label class="field-label" for="maxInput">最大投递数</label>
+          <input type="number" id="maxInput" class="input" min="1" max="500" step="1" value="30" />
+        </div>
+      </div>
+
+      <label class="switch-row">
+        <input type="checkbox" id="autoScrollChk" checked />
+        <span>自动翻页 / 下拉加载更多职位</span>
+      </label>
+
+      <label class="switch-row">
+        <input type="checkbox" id="dryRunChk" />
+        <span>预演模式（只筛选不投递）</span>
+      </label>
+    </section>
+
+    <!-- 操作按钮 -->
+    <section class="actions">
+      <button id="scanBtn" class="btn btn-secondary">扫描筛选</button>
+      <button id="startBtn" class="btn btn-primary">开始投递</button>
+      <button id="stopBtn" class="btn btn-danger" disabled>停止</button>
+    </section>
+
+    <!-- 运行状态 -->
+    <section class="card status-card" id="statusCard" hidden>
+      <h2 class="card-title">运行状态</h2>
+      <div class="stats">
+        <div class="stat"><span id="statScan">0</span><em>扫描</em></div>
+        <div class="stat"><span id="statMatch">0</span><em>匹配</em></div>
+        <div class="stat"><span id="statSent">0</span><em>已投递</em></div>
+        <div class="stat"><span id="statSkip">0</span><em>跳过</em></div>
+      </div>
+      <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+      <div class="log" id="logBox"></div>
+    </section>
+
+    <footer class="footer">
+      <span>请遵守各网站投递规则，勿频繁操作</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

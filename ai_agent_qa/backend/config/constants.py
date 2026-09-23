@@ -1,0 +1,58 @@
+"""
+常量定义模块
+定义系统中使用的常量值
+"""
+
+# 消息类型
+MESSAGE_TYPE_TEXT = "text"
+MESSAGE_TYPE_IMAGE = "image"
+MESSAGE_TYPE_AUDIO = "audio"
+MESSAGE_TYPE_VIDEO = "video"
+
+MESSAGE_TYPES = [
+    MESSAGE_TYPE_TEXT,
+    MESSAGE_TYPE_IMAGE,
+    MESSAGE_TYPE_AUDIO,
+    MESSAGE_TYPE_VIDEO,
+]
+
+# 发送者类型
+SENDER_TYPE_USER = "user"
+SENDER_TYPE_AGENT = "agent"
+
+SENDER_TYPES = [SENDER_TYPE_USER, SENDER_TYPE_AGENT]
+
+# 文件类型
+IMAGE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".gif", ".webp"]
+VIDEO_EXTENSIONS = [".mp4", ".webm", ".avi", ".mov"]
+AUDIO_EXTENSIONS = [".wav", ".mp3", ".mpeg", ".webm", ".m4a"]
+
+# 默认值
+DEFAULT_MAX_TOKENS = 1000
+DEFAULT_TEMPERATURE = 0.7
+DEFAULT_TOP_P = 1.0
+
+# Agent状态
+AGENT_STATE_INPUT = "input"
+AGENT_STATE_PROCESSING = "processing"
+AGENT_STATE_TOOL_CALL = "tool_call"
+AGENT_STATE_OUTPUT = "output"
+AGENT_STATE_COMPLETE = "complete"
+AGENT_STATE_ERROR = "error"
+
+# 工具名称
+TOOL_WEB_SEARCH = "web_search"
+TOOL_CALCULATOR = "calculator"
+TOOL_DATABASE = "database"
+TOOL_IMAGE_ANALYZER = "image_analyzer"
+TOOL_IMAGE_GENERATOR = "image_generator"
+TOOL_VIDEO_ANALYZER = "video_analyzer"
+
+# HTTP状态码
+HTTP_200_OK = 200
+HTTP_201_CREATED = 201
+HTTP_400_BAD_REQUEST = 400
+HTTP_401_UNAUTHORIZED = 401
+HTTP_403_FORBIDDEN = 403
+HTTP_404_NOT_FOUND = 404
+HTTP_500_INTERNAL_SERVER_ERROR = 500

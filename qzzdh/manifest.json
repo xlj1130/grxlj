@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "求职自动投递助手",
+  "version": "1.1.0",
+  "description": "在求职网站批量投送简历，支持按工作年限、城市地区、学历筛选职位",
+  "permissions": ["storage", "activeTab", "scripting", "tabs", "notifications"],
+  "host_permissions": [
+    "*://*.zhipin.com/*",
+    "*://*.zhaopin.com/*",
+    "*://*.51job.com/*",
+    "*://*.liepin.com/*",
+    "*://*.lagou.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "求职自动投递助手",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.zhipin.com/*",
+        "*://*.zhaopin.com/*",
+        "*://*.51job.com/*",
+        "*://*.liepin.com/*",
+        "*://*.lagou.com/*"
+      ],
+      "js": ["config/sites.js", "content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

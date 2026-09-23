@@ -1,0 +1,15 @@
+# Python 缓存
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+.vscode/
+
+# 打包产物
+*.zip
+dist/
+
+# 系统文件
+Thumbs.db
+.DS_Store

@@ -1,0 +1,22 @@
+# Database
+*.db
+*.sqlite3
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Uploads
+uploads/
+
+# Environment
+.env
+
+# IDE
+.idea/
+.vscode/
+
+# Next.js
+.next/
+node_modules/
